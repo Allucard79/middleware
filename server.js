@@ -14,9 +14,7 @@ app.get('/store', (req, res) => {
     console.log('To jest sklep');
 });
 
-const server = app.listen(3000, '127.0.0.1', () => {
-    const host = server.address().address;
-    const port = server.address().port;
-
-    console.log(`Przykładowa aplikacja nasłuchuje na http://${host} : ${port}`);
+app.listen(3000);
+app.use(function (req, res, next) {
+    res.status(404).send('Wybacz, nie mogliśmy odnaleźć tego, czego żądasz!')
 });
